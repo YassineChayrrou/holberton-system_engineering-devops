@@ -1,1 +1,2 @@
-shell scripts for holberton project shell basics
+shell scripts
+holberton project shell basics
