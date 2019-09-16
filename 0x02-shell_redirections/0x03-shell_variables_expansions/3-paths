@@ -1,0 +1,2 @@
+#!/bin/bash
+find $PATH -type d -printf "%f\n" | sort | uniq | wc -l
