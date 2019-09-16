@@ -1,2 +1,2 @@
 #!/bin/bash
-printf $((16#$hexNum))
+printf (16#$hexNum)
