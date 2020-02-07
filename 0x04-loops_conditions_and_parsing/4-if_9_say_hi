@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#echo "Holberton School" 10 times with the 9th time being "Hi"
+i=1
+while [ $i -le 10 ]
+do
+	if [ $i -eq 9 ]
+	then
+		echo "Hi"
+	else
+		echo "Holberton School"
+	fi
+	((i++))
+done
