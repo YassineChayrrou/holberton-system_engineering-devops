@@ -13,8 +13,6 @@ echo "holbertonschool file exists"
 	if [ -f $fname ]
 	then
 	echo "holbertonschool is a regular file"
-	else
-	echo
 	fi
 else
 echo "holbertonschool file does not exist"
