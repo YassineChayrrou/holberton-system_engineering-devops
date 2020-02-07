@@ -20,3 +20,9 @@ do
 		((min++))
 	done
 done
+i=1
+while [ $i -le 59 ]
+do
+echo "$i"
+((i++))
+done
