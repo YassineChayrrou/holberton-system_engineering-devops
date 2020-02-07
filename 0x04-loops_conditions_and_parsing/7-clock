@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#displays time for 12 hours and 95 minutes with conditions set for each specific iteration
+hr=0
+echo "Hour: 0"
+while [ $hr -le 11 ]
+do
+	((hr++))
+	min=1
+	while [ $min -le 59 ]
+	do
+		case $min in
+		59)
+		echo "$min"
+		echo "Hour: $hr"
+		;;
+		*)
+		echo "$min"
+		;;
+		esac
+		((min++))
+	done
+done
