@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#displays sentence indefinitely
+i=0
+while [ i ]
+do
+	echo "to infinity and beyond"
+done
