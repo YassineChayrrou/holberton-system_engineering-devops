@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#kill process
+./5-kill_me_now
