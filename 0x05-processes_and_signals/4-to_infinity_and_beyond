@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 #displays sentence indefinitely
-i=0
-while [ $i ]
+while true
 do
-	echo "to infinity and beyond"
+	echo "To infinity and beyond"
 	sleep 2
 done
