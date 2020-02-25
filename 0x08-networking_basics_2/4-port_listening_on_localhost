@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 #listener to port 98
-netcat -l 98
+sudo nc -l 98
