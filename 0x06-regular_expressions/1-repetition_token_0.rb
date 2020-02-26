@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/Hbt{2,5}n/).join
+#Task 1: repetition token
+puts ARGV[0].scan(/hbt{2,5}n/).join
 
