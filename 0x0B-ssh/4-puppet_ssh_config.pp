@@ -1,10 +1,12 @@
 #puppet manifest - automates ssh file configuration
-file_line { 'ssh_config':
-  include stdlib.h
-  ensure => 'present',
-  path   => '/etc/ssh/ssh_config',
-  line   => [
-    'PasswordAthentication no',
-    'IdentifyFile ~/.ssh/holberton',
-  ],
+exec {'PasswordAuthentication':
+  path     => '/bin',
+  command  => "sed -i 's/.*PasswordAuthentication.*/    PasswordAuthentication yes/' /etc/ssh/ssh_config",
+  provider => 'shell',
+}
+
+exec { 'IdentityFile':
+  path     => '/bin',
+  command  => "sed -i '0,/.*IdentityFile.*/s/.*IdentityFile.*/    IdentityFile ~\/.ssh\/holberton/' /etc/ssh/ssh_config",
+  provider => 'shell',
 }
