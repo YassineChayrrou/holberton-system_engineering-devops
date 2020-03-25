@@ -1,5 +1,5 @@
-#puppet manifest - automates ssh file configuration
 include stdlib
+#puppet manifest - automates ssh file configuration
 file_line { 'PassAuthDisable':
   ensure => present,
   path   => '/etc/ssh/ssh_config',
@@ -10,6 +10,6 @@ file_line { 'PassAuthDisable':
 file_line { 'PersonalizedSSHKey':
   ensure => present,
   path   => '/etc/ssh/ssh_config',
-  line   => 'IdentityFile ~/.ssh/ssh_config',
+  line   => 'IdentityFile ~/.ssh/holberton',
   match  => '.*Identity.*identity',
 }
