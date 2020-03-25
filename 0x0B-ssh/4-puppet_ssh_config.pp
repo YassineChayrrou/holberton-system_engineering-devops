@@ -3,7 +3,7 @@ include stdlib
 file_line { 'PassAuthDisable':
   ensure => present,
   path   => '/etc/ssh/ssh_config',
-  line   => 'IdentifyFile ~/.ssh/holberton'
+  line   => 'PasswordAuthentication yes'
   match  => '.*PasswordAuthentication.*'
 }
 
