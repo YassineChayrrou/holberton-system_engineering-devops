@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #install nginx and sets index.html to Holberton School
+sudo apt update
 sudo apt install nginx -y
 echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
-sudo service nginx restart
+sudo service nginx start
+sudo systemctl restart nginx.service
