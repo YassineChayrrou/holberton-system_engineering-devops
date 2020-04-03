@@ -2,5 +2,5 @@
 #script that setup nginx and adds custom http response request to nginx.config
 sudo apt update -y
 sudo apt install nginx -y
-sudo sed -i '/\http {/a add_header X-Served-By \$HOSTNAME;' /etc/nginx/nginx.conf
+sudo sed -i '/\http {/a add_header X-Served-By \$hostname;' /etc/nginx/nginx.conf
 sudo service nginx start
