@@ -2,4 +2,4 @@
 #script that sets listen port of nginx to port 80 instead of 8080
 cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 /etc/init.d/nginx restart
-kill -9 "$(pgrep nginx | head -1)"
+kill "$(pgrep -o nginx)"
