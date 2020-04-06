@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#script that does previous task in 7 lines or less
+pkill apache2
+sed -i "1,24s/80/8080" /etc/nginx/sites-enabled/default
+chmod 766 /etc/nginx/nginx.conf
+sed -i '/#user www-data;/a user nginx;' /etc/nginx/nginx.conf
+su - nginx -c "service nginx restart"
