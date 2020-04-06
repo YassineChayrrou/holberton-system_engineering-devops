@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# script that runs nginx as nginx master process
+# apache2 should be killed since it blocks port 8080
+# configures default file at /etc/nginx/sites-enabled/
+#starts nginx as nginx
+pkill apache2
+pkill nginx
+sed -i "s/listen 80 default_server;/listen 8080 default_server;/" /etc/nginx/sites-enabled/default
+sed -i "s/listen \[\:\:\]\:80 default_server ipv6only=on;/listen [::]:8080 default_server ipv6only=on;/" /etc/nginx/sites-enabled/default
+sed -i '/#user www-data;/a user nginx;' /etc/nginx/nginx.conf
+chmod 766 /etc/nginx/nginx.conf
+su - nginx -c "service nginx restart"
