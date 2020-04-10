@@ -2,4 +2,4 @@
 # script that runs a command as another user
 #if check  is red add sudo to script
 
-su -pc "whoami" "$1"
+sudo -u "$1" whoami
