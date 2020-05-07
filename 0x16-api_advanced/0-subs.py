@@ -8,7 +8,8 @@ def number_of_subscribers(subreddit):
     """returns the number of subscribers for a given subreddit
     """
     headers = {'user-agent': 'auserrequest'}
-    r = requests.get("http://www.reddit.com/r/{}/about.json".format(subreddit))
+    r = requests.get("http://www.reddit.com/r/{}/about.json".format(subreddit),
+                     headers=headers)
     if (r.status_code is 302) or (r.status_code is 404):
         return 0
     r = r.json()
