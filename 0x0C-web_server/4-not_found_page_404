@@ -7,6 +7,6 @@ sudo service nginx start
 
 config="\\\terror_page 404 \/error_404.html;"
 configloc="\n\tlocation = \/error_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}"
-sed  "19a $config$configloc" /etc/nginx/sites-enabled/default
+sed -i "19a $config$configloc" /etc/nginx/sites-enabled/default
 sudo service nginx restart
 
