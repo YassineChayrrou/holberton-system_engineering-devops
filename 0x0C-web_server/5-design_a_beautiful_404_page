@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <style>
+
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: currentColor;
+}
+/* I. Containers */
+figure {
+	font-size: 6px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 64em;
+}
+figcaption {
+	color: #fff;
+	display: flex;
+	align-content: space-between;
+	flex-wrap: wrap;
+	height: 17em;
+}
+figcaption span:before, .sad-mac:before {
+	content: "";
+	display: block;
+	width: 1em;
+	height: 1em;
+	transform: translate(-1em,-1em);
+} 
+figcaption span {
+	display: inline-block;
+	margin: 0 2em;
+	width: 4em;
+	height: 6em;
+}
+.sr-text {
+	overflow: hidden;
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+
+/* Letters */
+._0:before {
+	box-shadow: 2em 1em, 3em 1em, 1em 2em, 1em 3em, 1em 4em, 1em 5em, 4em 2em, 4em 3em, 4em 4em, 4em 5em, 2em 4em, 3em 3em, 2em 6em, 3em 6em;
+}
+._4:before {
+	box-shadow: 1em 1em, 1em 2em, 1em 3em, 1em 4em, 4em 1em, 4em 2em, 4em 3em, 4em 4em, 2em 4em, 3em 4em, 4em 5em, 4em 6em;
+}
+.d:before {
+	box-shadow: 1em 1em, 2em 1em, 3em 1em, 1em 2em, 4em 2em, 1em 3em, 4em 3em, 1em 4em, 4em 4em, 1em 5em, 4em 5em, 1em 6em, 2em 6em, 3em 6em;
+}
+.e:before {
+	box-shadow: 1em 1em, 2em 1em, 3em 1em, 4em 1em, 1em 2em, 1em 3em, 2em 3em, 3em 3em, 1em 4em, 1em 5em, 1em 6em, 2em 6em, 3em 6em, 4em 6em;
+}
+.f:before {
+	box-shadow: 1em 1em, 2em 1em, 3em 1em, 4em 1em, 1em 2em, 1em 3em, 2em 3em, 3em 3em, 1em 4em, 1em 5em, 1em 6em;
+}
+.n:before {
+	box-shadow: 1em 1em, 1em 2em, 1em 3em, 1em 4em, 1em 5em, 1em 6em, 4em 1em, 4em 2em, 4em 3em, 4em 4em, 4em 5em, 4em 6em, 2em 3em, 3em 4em;
+}
+.o:before {
+	box-shadow: 2em 1em, 3em 1em, 1em 2em, 1em 3em, 1em 4em, 1em 5em, 4em 2em, 4em 3em, 4em 4em, 4em 5em, 2em 6em, 3em 6em;
+}
+.r:before {
+	box-shadow: 1em 1em, 2em 1em, 3em 1em, 4em 2em, 1em 2em, 1em 3em, 1em 4em, 2em 3em, 3em 3em, 1em 5em, 1em 6em, 4em 4em, 4em 5em, 4em 6em;
+}
+.t:before {
+	box-shadow: 1em 1em, 2em 1em, 3em 1em, 2em 2em, 2em 3em, 2em 4em, 2em 5em, 2em 6em;
+}
+.u:before {
+	box-shadow: 1em 1em, 1em 2em, 1em 3em, 1em 4em, 1em 5em, 4em 1em, 4em 2em, 4em 3em, 4em 4em, 4em 5em, 2em 6em, 3em 6em;
+}
+/* Responsiveness */
+@media screen and (min-width: 720px) {
+	figure {
+	    font-size: 7px;
+	}
+}
+@media screen and (min-width: 1440px) {
+	figure {
+	    font-size: 8px;
+	}
+}
+/* French sentence */
+.fr {
+    display: flex;
+    color: red;
+    font-size: large;
+    margin-top: 20px;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+    </style>
+</head>
+
+<body>
+    <figure>
+        <figcaption>
+            <span class="sr-text">Error 404: Not Found</span>
+            <span class="e"></span>
+            <span class="r"></span>
+            <span class="r"></span>
+            <span class="o"></span>
+            <span class="r"></span>
+            <span class="_4"></span>
+            <span class="_0"></span>
+            <span class="_4"></span>
+            <span class="n"></span>
+            <span class="o"></span>
+            <span class="t"></span>
+            <span class="f"></span>
+            <span class="o"></span>
+            <span class="u"></span>
+            <span class="n"></span>
+            <span class="d"></span>
+        </figcaption>
+        <div class="fr">
+            <h3>Ceci n'est pas une page</h3>
+        </div>
+    </figure>
+
+</body>
+</html>
