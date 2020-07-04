@@ -3,5 +3,11 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo service nginx start
+
+config="\\\terror_page 404 \/error_404.html;"
+configloc="\n\tlocation = \/error_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}"
+
 sudo sed -i "11i\	add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
-/etc/init.d/nginx restart
+sudo sed  -i "19a $config$configloc" /etc/nginx/sites-enabled/default
+sudo sed -n -i 'p;19a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default
+sudo service nginx restart
