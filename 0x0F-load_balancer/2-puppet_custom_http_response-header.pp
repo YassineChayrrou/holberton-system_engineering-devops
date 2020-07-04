@@ -1,21 +1,15 @@
-# custom HTTP header response using Puppet on nginx web server
-
-exec { 'update':
-command => 'sudo apt-get -y update',
-provider => 'shell',
+# Configures a server with nginx adding a custom header
+exec { 'apt-get -y update':
+  provider  => 'shell',
 }
-
-exec { 'nginxInstall':
-command => 'sudo apt-get -y install nginx',
-provider => 'shell',
+-> package {'check':
+  name => "nginx",
+  ensure => present,
 }
-
-exec { 'start_nginx':
-command => 'sudo service nginx start',
-provider => 'shell',
+-> exec { 'header':
+  provider  => 'shell',
+  command   => "sed -i "11i\   add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf",
 }
-
-exec { 'configuration':                                                                                                                                                   
-command => 'sed -i  "11i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf && sudo service nginx restart',                                                                                          
-provider => 'shell',                                                                                                                                                            
+-> exec { 'service nginx restart':
+  provider  => 'shell',
 }
