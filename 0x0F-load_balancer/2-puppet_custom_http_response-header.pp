@@ -1,15 +1,18 @@
 # Configures a server with nginx adding a custom header
-exec { 'apt-get -y update':
-  provider  => 'shell',
+
+exec { 'update_packages':
+  path    => ['/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/'],
+  command => 'sudo apt-get -y update',
 }
--> package {'check':
-  name => "nginx",
-  ensure => present,
+
+exec { 'start_nginx':
+  path     => ['/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/'],
+  command  => 'sudo apt-get -y install nginx && sudo service start nginx',
+  provider => 'shell',
 }
--> exec { 'header':
-  provider  => 'shell',
-  command   => "sed -i "11i\   add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf",
-}
--> exec { 'service nginx restart':
-  provider  => 'shell',
+
+exec { 'restart_nginx':
+  path     => ['/bin/', '/sbin/', '/usr/bin', '/usr/sbin'],
+  command  => 'sed -i -e "/sendfile/i \\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf && sudo service nginx restart',
+  provider => 'shell',
 }
