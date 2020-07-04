@@ -3,13 +3,13 @@
 exec {'update-server':
   provider => shell,
   path     => '/usr/bin',
-  command  => 'apt-get -y update',
+  command  => 'apt-get update -y',
 }
 
 exec {'install-nginx':
   provider => shell,
   path     => '/usr/bin',
-  command  => 'apt-get -y install nginx',
+  command  => 'apt-get install nginx -y',
 }
 
 exec {'custom-html':
@@ -17,17 +17,13 @@ exec {'custom-html':
   command  => 'echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html',
 }
 
-exec {'start-nginx':
-  provider => shell,
-  command  => 'service nginx start',
-}
 
 exec {'redirection-setup':
   provider => shell,
   command  => "sed -n -i 'p;19a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default",
 }
 
-exec {'restart-nginx':
+exec {'start-nginx':
   provider => shell,
-  command  => 'service nginx restart',
+  command  => 'service nginx start',
 }
