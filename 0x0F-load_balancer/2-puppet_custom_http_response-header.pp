@@ -7,7 +7,7 @@ exec { 'update_packages':
 
 exec { 'start_nginx':
   path     => ['/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/'],
-  command  => 'sudo apt-get -y install nginx && sudo service start nginx',
+  command  => 'sudo apt-get -y install nginx',
   provider => 'shell',
 }
 
