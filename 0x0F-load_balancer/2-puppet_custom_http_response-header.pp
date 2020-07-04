@@ -1,4 +1,4 @@
-# Configures a server with nginx adding a custom header
+# Puppet that configures nginx custom header
 
 exec { 'update_packages':
   path    => ['/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/'],
