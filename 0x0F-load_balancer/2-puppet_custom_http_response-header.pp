@@ -1,11 +1,19 @@
-# Automates a custom HTTP header response nginx setup
-
-exec { 'Header_setup':
-command  => 'sudo sed -i "11i\	add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf',
-provider => 'shell',
+# Configures a server with nginx adding a custom header
+exec { 'apt-get -y update':
+  provider  => 'shell',
 }
-
-exec { 'restart':
-  command  => 'service nginx restart',
-  provider => 'shell',
+-> package {'check':
+  name => "nginx",
+  ensure => present,
+}
+-> service { 'starting':
+  name => "nginx",
+  ensure => running,
+}
+-> exec { 'Adding header':
+  provider  => 'shell',
+  command   => "sed -i -e '/sendfile on;/a \\\tadd_header X-Served-By ${hostname};' /etc/nginx/nginx.conf",
+}
+-> exec { 'service nginx restart':
+  provider  => 'shell',
 }
