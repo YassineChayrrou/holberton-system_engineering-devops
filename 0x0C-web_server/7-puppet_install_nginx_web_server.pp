@@ -1,15 +1,33 @@
 #nginx install and configuration as mentioned on task 3 using puppet
-exec{'command':
-  command => '/usr/bin/wget -q https://raw.githubusercontent.com/YassineChayrrou/holberton-system_engineering-devops/master/0x0C-web_server/3-redirection',
-  creates => '/home/ubuntu/3-redirection',
+
+exec {'update server':
+  provider => shell,
+  path     => '/usr/bin',
+  command  => 'sudo apt-get -y update',
 }
 
-file{'/home/ubuntu/3-redirection':
-  mode    => '0755',
-  require => Exec['3-redirection'],
+exec {'install nginx':
+  provider => shell,
+  path     => '/usr/bin',
+  command  => 'sudo apt-get -y install nginx',
 }
 
-exec {'html':
+exec {'custom html':
   provider => shell,
   command  => 'sudo echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html',
+}
+
+exec {'start nginx':
+  provider => shell,
+  command  => 'sudo service nginx start',
+}
+
+exec {'redirection setup':
+  provider => shell,
+  command  => 'sudo sed -n -i "p;19a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-enabled/default',
+}
+
+exec {'restart nginx':
+  provider => shell,
+  command  => 'sudo service nginx restart',
 }
